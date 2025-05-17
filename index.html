@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cybertruck Estimator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1c1c1c;
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+    }
+    #estimate {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+<body>
+  <h1>🛻 Cybertruck 2025 Estimator</h1>
+
+  <label for="trim">Choose Trim:</label>
+  <select id="trim">
+    <option value="60000">Single Motor RWD ($60,000)</option>
+    <option value="80000">Dual Motor AWD ($80,000)</option>
+    <option value="100000">Tri Motor AWD ($100,000)</option>
+  </select><br>
+
+  <label for="color">Choose Color:</label>
+  <select id="color">
+    <option value="0">Stainless Steel (Included)</option>
+    <option value="1500">Matte Black (+$1,500)</option>
+  </select><br>
+
+  <label for="wheels">Choose Wheels:</label>
+  <select id="wheels">
+    <option value="0">Standard Wheels (Included)</option>
+    <option value="2500">Cyber Wheels (+$2,500)</option>
+  </select><br>
+
+  <button onclick="calculateEstimate()">Get Estimate</button>
+
+  <div id="estimate"></div>
+
+  <script>
+    function calculateEstimate() {
+      const trim = parseInt(document.getElementById("trim").value);
+      const color = parseInt(document.getElementById("color").value);
+      const wheels = parseInt(document.getElementById("wheels").value);
+      const total = trim + color + wheels;
+
+      document.getElementById("estimate").innerText = 
+        "Estimated Total: $" + total.toLocaleString();
+    }
+  </script>
+</body>
+</html>
